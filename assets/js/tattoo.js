@@ -1,21 +1,16 @@
- function showImages(el) {
-        var windowHeight = jQuery( window ).height();
-        $(el).each(function(){
-            var thisPos = $(this).offset().top;
-
-            var topOfWindow = $(window).scrollTop();
-            if (topOfWindow + windowHeight - 200 > thisPos ) {
-                $(this).addClass("fadeIn");
-            }
-        });
-    }
-
-    // if the image in the window of browser when the page is loaded, show that image
-    $(document).ready(function(){
-            showImages('.star');
+$(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
     });
-
-    // if the image in the window of browser when scrolling the page, show that image
-    $(window).scroll(function() {
-            showImages('.star');
-    });
+  }).scroll(); //invoke scroll-handler on page-load
+});

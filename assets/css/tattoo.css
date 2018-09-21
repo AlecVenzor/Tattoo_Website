@@ -23,8 +23,7 @@
 }
 
 .box{
-	flex: 1 0 24rem;
-	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	flex: 1 0 24rem
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
 	overflow: hidden;
@@ -42,9 +41,21 @@
 	transform:scale(1.15);
 }
 
-h1{
+#header{
 	font-weight: 700;
 	font-size: 5em;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -100%);
+}
+
+#headerSubtext{
+	font-size: 1em;
+	position: absolute;
+  	top: 51%;
+  	left: 47%;
+  	transform: translate(-40%, -80%);
 }
 
 .headerContent{
@@ -53,9 +64,7 @@ h1{
 	background-size:100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
-	text-align: center;
 	color:white;
-	padding-top: 20%;
 	font-family: Lato;
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
@@ -63,10 +72,14 @@ h1{
 }
 
 #headerUnderline{
+	position: absolute;
+  	top: 52%;
+  	left: 45%;
+  	transform: translate(-100%, -80%);
 	grid-column-start: 2;
 	grid-column-end: 3;
-	margin-left:25%;
-	width:45%;
+	margin-left:30%;
+	width:50%;
 	border-top:1px solid #f8f8f8;
 	border-bottom:1px rgba(0,0,0,0.2);
 }

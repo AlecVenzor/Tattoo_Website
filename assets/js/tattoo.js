@@ -1,3 +1,21 @@
+$(function(){
+  
+var documentEl = $(document),
+    fadeElem = $(".fade-scroll");
+
+documentEl.on("scroll", function(){
+  var currScrollPos = documentEl.scrollTop();
+
+  fadeElem.each(function(){
+    var $this = $(this),
+        elemOffsetTop = $this.offset().top;
+        if(currScrollPos > elemOffsetTop)
+          $this.css("opacity", 1 - (currScrollPos - elemOffsetTop) / 850);
+        });
+
+  });
+});
+
 $(window).on("load",function() {
   $(window).scroll(function() {
     var windowBottom = $(this).scrollTop() + $(this).innerHeight();
@@ -14,3 +32,16 @@ $(window).on("load",function() {
     });
   }).scroll(); //invoke scroll-handler on page-load
 });
+
+$("#aboutBtn").click(function(){
+  location.href ="about.html"
+});
+
+$("#contactBtn").click(function(){
+  location.href ="contact.html"
+});
+
+$("#pricingBtn").click(function(){
+  location.href ="pricing.html"
+});
+
